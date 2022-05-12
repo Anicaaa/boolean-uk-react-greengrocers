@@ -35,10 +35,12 @@ export default function App() {
 
     const newItem = { ...findItemCart, quantity: findItemCart.quantity - 1 }
     setCart([...findOtherItems, newItem])
-    //If statement (quanitity === 0)
-    // setCart findOtherItems
-    // else
-    // setCart findOtherItems, newItems
+
+    if (findItemCart.quantity === 0) {
+      setCart([...findOtherItems])
+    } else {
+      setCart([...findOtherItems, newItem])
+    }
   }
 
   return (
