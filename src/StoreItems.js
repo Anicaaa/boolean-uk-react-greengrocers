@@ -4,7 +4,7 @@ function StoreItems(props) {
       <div className="store--item-icon">
         <img src={`/assets/icons/${props.id}.svg`} alt={props.name} />
       </div>
-      <button>Add to cart</button>
+      <button onClick={props.addToCart}>Add to cart</button>
     </li>
   )
 }
