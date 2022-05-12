@@ -7,9 +7,19 @@ function CartItems(props) {
         alt={props.name}
       />
       <p>{props.name}</p>
-      <button className="quantity-btn remove-btn center">-</button>
-      <span className="quantity-text center">1</span>
-      <button className="quantity-btn add-btn center">+</button>
+      <button
+        onClick={props.decreaseQuantity}
+        className="quantity-btn remove-btn center"
+      >
+        -
+      </button>
+      <span className="quantity-text center">{props.quantity}</span>
+      <button
+        onClick={props.increaseQuantity}
+        className="quantity-btn add-btn center"
+      >
+        +
+      </button>
     </li>
   )
 }

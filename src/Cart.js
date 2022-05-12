@@ -7,7 +7,14 @@ function Cart(props) {
       <div className="cart--item-list-container">
         <ul className="item-list cart--item-list">
           {props.cart.map(item => (
-            <CartItems key={item.id} name={item.name} id={item.id} />
+            <CartItems
+              key={item.id}
+              name={item.name}
+              id={item.id}
+              quantity={item.quantity}
+              increaseQuantity={() => props.increaseQuantity(item)}
+              decreaseQuantity={() => props.decreaseQuantity(item)}
+            />
           ))}
         </ul>
       </div>
