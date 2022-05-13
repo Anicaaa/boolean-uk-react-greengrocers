@@ -22,24 +22,23 @@ export default function App() {
   }
 
   function increaseQuantity(item) {
-    const findItemCart = cart.find(checkItem => checkItem.id === item.id)
-    const findOtherItems = cart.filter(checkItem => checkItem.id !== item.id)
+    const newCart = [...cart]
 
-    const newItem = { ...findItemCart, quantity: findItemCart.quantity + 1 }
-    setCart([...findOtherItems, newItem])
+    const findItemCart = newCart.find(checkItem => checkItem.id === item.id)
+    findItemCart.quantity = findItemCart.quantity + 1
+    setCart([...newCart])
   }
 
   function decreaseQuantity(item) {
-    const findItemCart = cart.find(checkItem => checkItem.id === item.id)
-    const findOtherItems = cart.filter(checkItem => checkItem.id !== item.id)
+    const newCart = [...cart]
+    const findItemCart = newCart.find(checkItem => checkItem.id === item.id)
+    const findOtherItems = newCart.filter(checkItem => checkItem.id !== item.id)
+    findItemCart.quantity = findItemCart.quantity - 1
 
-    const newItem = { ...findItemCart, quantity: findItemCart.quantity - 1 }
-    setCart([...findOtherItems, newItem])
-
-    if (findItemCart.quantity >= 0) {
-      setCart([...findOtherItems])
+    if (findItemCart.quantity === 0) {
+      setCart(findOtherItems)
     } else {
-      setCart([...findOtherItems, newItem])
+      setCart([...newCart])
     }
   }
 
