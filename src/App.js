@@ -36,7 +36,7 @@ export default function App() {
     const newItem = { ...findItemCart, quantity: findItemCart.quantity - 1 }
     setCart([...findOtherItems, newItem])
 
-    if (findItemCart.quantity === 0) {
+    if (findItemCart.quantity >= 0) {
       setCart([...findOtherItems])
     } else {
       setCart([...findOtherItems, newItem])
